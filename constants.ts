@@ -10,7 +10,7 @@ export const EMBEDDED_VIEW = {
 export const RIGHT_COL = "rightCol";
 
 export const EMBEDDED_HEIGHT = {
-  MINIMIZED: "65px",
+  MINIMIZED: "50px",
   MAXIMIZED: "480px",
 };
 
