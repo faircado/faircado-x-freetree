@@ -7,7 +7,7 @@ const toEmbeddedAppMessageBuffer: object[] = [];
 
 const toggleEmbeddedView = (isExpanded: boolean) => {
   const faircadoEmbeddedWrapper = document.getElementById(
-    EMBEDDED_VIEW.WRAPPER_ID
+    EMBEDDED_VIEW.WRAPPER_ID,
   );
   if (!faircadoEmbeddedWrapper) return;
   const newHeight = isExpanded
@@ -44,7 +44,7 @@ function sendMessagesToEmbeddedAppFromBuffer() {
   while (toEmbeddedAppMessageBuffer.length > 0) {
     const message = toEmbeddedAppMessageBuffer.shift();
     const embeddedIframe = document.getElementById(
-      EMBEDDED_VIEW.IFRAME_ID
+      EMBEDDED_VIEW.IFRAME_ID,
     ) as HTMLIFrameElement;
     if (embeddedIframe) {
       embeddedIframe.contentWindow?.postMessage(message, "*");

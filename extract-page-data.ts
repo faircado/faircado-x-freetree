@@ -26,8 +26,8 @@ const getAuthors = () => {
   return authors.map((author) =>
     selectTextByElement(author).replace(
       /\s*\((author|autor|auteur|eser sahibi|مؤلف|作者)\)/gi,
-      ""
-    )
+      "",
+    ),
   );
 };
 const getProductCategory = () =>

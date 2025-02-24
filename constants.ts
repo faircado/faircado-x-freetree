@@ -7,6 +7,8 @@ export const EMBEDDED_VIEW = {
   INTERACTION_ORIGIN: "extension_embedded",
 } as const;
 
+export const POPUP_WRAPPER_ID = "faircado-iframe-wrapper";
+
 export const RIGHT_COL = "rightCol";
 
 export const EMBEDDED_HEIGHT = {
