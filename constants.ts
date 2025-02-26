@@ -12,7 +12,7 @@ export const POPUP_WRAPPER_ID = "faircado-iframe-wrapper";
 export const RIGHT_COL = "rightCol";
 
 export const EMBEDDED_HEIGHT = {
-  MINIMIZED: "50px",
+  MINIMIZED: "60px",
   MAXIMIZED: "480px",
 };
 
