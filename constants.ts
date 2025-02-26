@@ -50,3 +50,7 @@ export const WEBAPP_ADDRESSES = {
   STAGING: "https://extension.staging.faircado.com/",
   PRODUCTION: "https://extension-v3-8.faircado.com",
 };
+
+export const featureFlags = {
+  hasCloseEmbeddedView: true,
+} as const;

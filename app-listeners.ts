@@ -1,4 +1,9 @@
-import { EMBEDDED_HEIGHT, EMBEDDED_VIEW, MESSAGE_TYPES } from "./constants";
+import {
+  EMBEDDED_HEIGHT,
+  EMBEDDED_VIEW,
+  featureFlags,
+  MESSAGE_TYPES,
+} from "./constants";
 import { extractPageData } from "./extract-page-data";
 import { getPreferredLanguage } from "./helpers";
 
@@ -34,6 +39,7 @@ const closeEmbeddedView = () => {
 export const setupEmbeddedApp = () => {
   toEmbeddedAppMessageBuffer.push({
     type: MESSAGE_TYPES.initializeAppSettings,
+    featureFlags,
     userSettings: {
       language: getPreferredLanguage(),
     },
