@@ -16,6 +16,17 @@ const toggleEmbeddedView = (isExpanded: boolean) => {
   faircadoEmbeddedWrapper.style.height = newHeight;
 };
 
+const closeEmbeddedView = () => {
+  const faircadoEmbeddedWrapper = document.getElementById(
+    EMBEDDED_VIEW.WRAPPER_ID,
+  );
+  if (!faircadoEmbeddedWrapper) {
+    return false;
+  }
+  faircadoEmbeddedWrapper.remove();
+  return true;
+};
+
 /**
  * Extracts required data for amazon book pages and sends it to the embedded app
  * Also sets users preferred language
@@ -53,7 +64,7 @@ function sendMessagesToEmbeddedAppFromBuffer() {
 }
 
 function startListeningToMessagesFromEmbeddedApp() {
-  window.addEventListener("message", function (event) {
+  const handleMessages = (event: MessageEvent) => {
     switch (event.data.type) {
       case MESSAGE_TYPES.embeddedAppReady:
         isEmbeddedAppReadyToRecieveMessages = true;
@@ -62,6 +73,14 @@ function startListeningToMessagesFromEmbeddedApp() {
       case MESSAGE_TYPES.toggleEmbeddedAccordion:
         toggleEmbeddedView(event.data.isExpanded);
         break;
+      case MESSAGE_TYPES.closeEmbeddedView: {
+        const isRemoved = closeEmbeddedView();
+        if (isRemoved) {
+          window.removeEventListener("message", handleMessages);
+        }
+      }
     }
-  });
+  };
+
+  window.addEventListener("message", handleMessages);
 }

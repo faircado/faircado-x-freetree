@@ -27,6 +27,7 @@ export const MESSAGE_TYPES = {
   embeddedAppReady: "embeddedAppReady",
   toggleEmbeddedAccordion: "toggleEmbeddedAccordion",
   initializeAppSettings: "initializeAppSettings",
+  closeEmbeddedView: "closeEmbeddedView",
 } as const;
 
 export const DATA_SELECTORS = {
