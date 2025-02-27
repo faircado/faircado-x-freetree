@@ -27,7 +27,7 @@ export const MESSAGE_TYPES = {
   embeddedAppReady: "embeddedAppReady",
   toggleEmbeddedAccordion: "toggleEmbeddedAccordion",
   initializeAppSettings: "initializeAppSettings",
-  closeEmbeddedView: "closeEmbeddedView",
+  removeExtensionFromDOM: "removeExtensionFromDOM",
 } as const;
 
 export const DATA_SELECTORS = {
@@ -52,5 +52,5 @@ export const WEBAPP_ADDRESSES = {
 };
 
 export const featureFlags = {
-  hasCloseEmbeddedView: true,
+  hasRemoveEmbeddedViewFromDOM: true,
 } as const;

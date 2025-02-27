@@ -21,15 +21,11 @@ const toggleEmbeddedView = (isExpanded: boolean) => {
   faircadoEmbeddedWrapper.style.height = newHeight;
 };
 
-const closeEmbeddedView = () => {
+const removeEmbeddedView = () => {
   const faircadoEmbeddedWrapper = document.getElementById(
     EMBEDDED_VIEW.WRAPPER_ID,
   );
-  if (!faircadoEmbeddedWrapper) {
-    return false;
-  }
-  faircadoEmbeddedWrapper.remove();
-  return true;
+  faircadoEmbeddedWrapper?.remove();
 };
 
 /**
@@ -79,9 +75,10 @@ function startListeningToMessagesFromEmbeddedApp() {
       case MESSAGE_TYPES.toggleEmbeddedAccordion:
         toggleEmbeddedView(event.data.isExpanded);
         break;
-      case MESSAGE_TYPES.closeEmbeddedView: {
-        const isRemoved = closeEmbeddedView();
-        if (isRemoved) {
+      case MESSAGE_TYPES.removeExtensionFromDOM: {
+        const interactionOrigin = event.data?.interactionOrigin;
+        if (interactionOrigin === EMBEDDED_VIEW.INTERACTION_ORIGIN) {
+          removeEmbeddedView();
           window.removeEventListener("message", handleMessages);
         }
       }
