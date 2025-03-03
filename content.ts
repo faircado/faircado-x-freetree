@@ -31,7 +31,7 @@ const isCategoryBook = () =>
 const createIframe = (machineKey: string) => {
   const iframe = document.createElement("iframe");
   iframe.id = EMBEDDED_VIEW.IFRAME_ID;
-  iframe.src = addQueryToUrl(WEBAPP_ADDRESSES.LOCAL, {
+  iframe.src = addQueryToUrl(WEBAPP_ADDRESSES.PRODUCTION, {
     mk: machineKey,
     interactionOrigin: EMBEDDED_VIEW.INTERACTION_ORIGIN,
     host: "amazon",
